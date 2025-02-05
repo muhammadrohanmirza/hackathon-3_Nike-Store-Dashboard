@@ -2,20 +2,221 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap'); */
+
+.body1 {
+    --white: #fff;
+    --black: #000; 
+    --lightBulue: #17a;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.body2 {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.wrapper {
+    position: relative;
+    width: 90%; /* Make wrapper responsive */
+    max-width: 750px; /* Set maximum width for larger screens */
+    height: auto; /* Allow height to adjust to content */
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 10px;
+    box-shadow: 0 0 20px var(--black);
+    overflow: hidden;
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+    .wrapper {
+        width: 750px;
+        height: 450px;
+    }
+}
+
+.wrapper .form-box {
+    position: relative; /* Remove absolute positioning */
+    width: 100%; /* Occupy full width */
+    height: auto; /* Allow height to adjust to content */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px; /* Add some padding */
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+    .wrapper .form-box {
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        padding: 0 60px 0 40px;
+    }
+}
+
+.wrapper .form-box.login {
+    left: 0;
+}
+
+.form-box h2 {
+    margin-bottom: 10px;
+    position: relative;
+    font-size: 24px; /* Reduce font size for smaller screens */
+    color: var(--black);
+    text-align: center;
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+    .form-box h2 {
+        font-size: 32px;
+    }
+}
+
+.form-box h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: var(--black);
+}
+
+.form-box .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0; /* Adjust margin for smaller screens */
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    color: var(--black);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid var(--black);
+    transition: .5s;
+    padding-right: 23px;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: var(--black);
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+    color: var(--lightBulue);
+}
+
+.input-box i {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.input-box input:focus~i,
+.input-box input:valid~i {
+    color: var(--lightBulue);
+}
+
+form button {
+    width: 100%;
+    height: 45px;
+    background-color: var(--black);
+    color: var(--white);
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.wrapper .info-text {
+    display: none; /* Hide info text on smaller screens */
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+    .wrapper .info-text {
+        display: flex; /* Show info text on larger screens */
+        position: absolute;
+        top: 0;
+        width: 50%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.wrapper .info-text.login {
+    right: 0;
+    text-align: right;
+    padding: 0 40px 60px 150px;
+}
+
+.wrapper .info-text h2 {
+    font-size: 24px; /* Reduce font size for smaller screens */
+    color: var(--white);
+    line-height: 1.3;
+    text-transform: uppercase;
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+    .wrapper .info-text h2 {
+        font-size: 36px;
+    }
+}
+
+.wrapper .info-text p {
+    font-size: 16px;
+    color: var(--white);
+}
+
+.wrapper .rotate-bg {
+    display: none; /* Hide rotate bg on smaller screens */
+}
+
+/* Media query for tablets and larger screens */
+@media (min-width: 768px) {
+    .wrapper .rotate-bg {
+        display: block; /* Show rotate bg on larger screens */
+        position: absolute;
+        top: -4px;
+        right: 0;
+        width: 850px;
+        height: 600px;
+        background: #000;
+        transform: rotate(10deg) skewY(40deg);
+        transform-origin: bottom right;
+        transition: 1.5s ease;
+        transition-delay: 1.6s;
+    }
 }
