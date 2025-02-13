@@ -381,7 +381,7 @@ export default function AdminDashboard() {
     <ProtectedRoute>
       <div className="min-h-screen bg-gray-50">
         <div className="flex flex-col">
-          <div className="border-b bg-gray-700 text-white shadow-md ">
+          <div className=" sticky z-30 w-full top-0 border-b bg-gray-700 text-white shadow-md ">
             <div className="flex h-16 items-center px-4">
               <h2 className="text-2xl font-bold flex items-center">
                 <Image src={logo} height={50} width={50} alt="logo" className="mr-2 hidden sm:block text-black" />
